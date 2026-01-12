@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def eda_preliminar(df1):
+def eda_preliminar(df):
 
     """ Realiza un análisis exploratorio preliminar sobre un DataFrame dado.
 
@@ -20,37 +20,49 @@ def eda_preliminar(df1):
 
     """
     
-    display(df1.sample(5))
+    display(df.sample(5))
 
     print('--------')
 
     print('DIMENSIONES')
 
-    print(f'Nuestro conjunto de datos presenta un total de {df1.shape[0]} filas y {df1.shape[1]} columnas')
+    print(f'Nuestro conjunto de datos presenta un total de {df.shape[0]} filas y {df.shape[1]} columnas')
 
     print('--------')
     
     print('INFO')
 
-    display(df1.info())
+    display(df.info())
 
     print('--------')
     
     print('NULOS')
 
-    display(df1.isnull().mean()*100)
+    display(df.isnull().mean()*100)
 
     print('--------')
     
     print('DUPLICADOS')
 
-    print(f'Tenemos un total de {df1.duplicated().sum()} duplicados')
+    print(f'Tenemos un total de {df.duplicated().sum()} duplicados')
 
     print('--------')
 
     print('FRECUENCIAS CATEGÓRICAS')
      
-    for col in df1.select_dtypes(include= 'object').columns:
+    for col in df.select_dtypes(include= 'object').columns:
         print(col.upper())
-        print(df1[col].value_counts())
+        print(df[col].value_counts())
         print('--------')
+
+    print('--------')
+
+    print('ESTADISTICOS NUMÉRICOS')
+    
+    display(df.describe().T)
+
+
+
+
+
+    
