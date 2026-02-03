@@ -38,7 +38,7 @@ def comas(df):
 
 def minus(df):
     """
-    Cambia a minúscula todas las columnas categóricas.
+    Cambia a minúscula el texto de todas las columnas categóricas
 
     """
    
