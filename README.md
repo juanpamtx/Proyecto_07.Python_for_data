@@ -1,11 +1,25 @@
-# Proyecto_07.Python_for_data #
+# Proyecto de Análisis Exploratorio de Datos (EDA) - Marketing Bancario #
 
-## **Objetivo del proyecto** ##
-Realizar un análisis exploratorio de los datos facilitados. Para realizar este análisis es obligatorio realizarlo con Python.
-Estos conjuntos de datos están relacionados con campañas de marketing directo de una institución bancaria portuguesa. Las campañas de marketing se basaron en llamadas telefónicas. A menudo, se requería más de un contacto con el mismo cliente para determinar si el producto (depósito a plazo bancario) sería suscrito o no.
+## **Descripción del proyecto** ##
 
-## **Datos del proyecto** ##
-Para este proyecto contamos con dos archivos de datos:
+Este proyecto realiza un Análisis Exploratorio de Datos (EDA) sobre una campaña de marketing de una entidad bancaria. El objetivo es identificar patrones y factores que influyen en la conversión de clientes (suscripción a un depósito a plazo).
+
+El análisis incluye limpieza de datos, exploración de variables sociodemográficas, comportamiento de contacto y análisis de variables temporales.
+
+
+## **Tecnologías aplicadas** ##
+
+- **Python 3.13**
+    - Jupyter Notebook: para todo el desarrollo
+- **Pandas**: manipulación y limpieza de datos
+- **NumPy**: operaciones numéricas
+- **Matplotlib / Seaborn**: visualización de datos
+- **Visual Studio Code**: entorno de trabajo
+
+
+## **Limpieza y preparación de datos**##
+
+Partimos de dos archivos: 
 
 **1. bank-additional**
 
@@ -20,8 +34,69 @@ Es un archivo excel con 20115 filas y 7 columnas en el que nos da información s
 ![Imagen información archivo: customer-details](./Imágenes/customer-details_informacion)
 
 
-## **Pasos seguidos** ##
+Se realizaron las siguientes tareas:
 
-1. Se ha realizado un eda_preliminar de cada uno de los archivos para hacer un primer análisis exploratorio de los datos. Para ello, se ha utilizado una función genérica para que pueda aplicarse a distintos grupos de datos. 
+- Eliminación de valores duplicados
 
-2. 
+- Tratamiento de valores desconocidos (unknown)
+
+- Conversión de variables categóricas a formato adecuado
+
+- Creación de variables derivadas:
+
+    - y_bin: variable objetivo binaria (0 = no, 1 = sí)
+
+    - Agrupaciones de edad, duración de llamada, campañas previas, etc.
+
+
+## **Análisis Exploratorio de datos (EDA)** ##
+
+**Perfil del cliente**
+
+Se han analizado las siguientes variables: 
+- Edad
+- Ocupación
+- Nivel educativo
+- Estado civil
+
+**Variables de contacto**
+
+- Duración de la llamada
+- Número de contactos durante la campaña
+- Días desde el último contacto (pdays)
+
+Se ha detectado que:
+- Las llamadas más largas tienen mayor probabilidad de conversión
+- Contactos recientes aumentan la tasa de éxito
+
+**Variables temporales**
+
+- Mes y año de contacto
+- Estacionalidad en la conversión
+
+**Consideraciones estadísticas**
+
+Durante el análisis se detectó que una agregación incorrecta de la variable pdays podía inducir a conclusiones erróneas. Por ello, los grupos se construyeron a partir de la variable numérica original para evitar sesgos.
+
+
+## **Resultados clave** ##
+
+- La conversión aumenta con llamadas de mayor duración
+- Clientes contactadas recientemente convierten más que los que no han sido contactados.
+- Determinados perfiles (mayor educación y edad media) presentan mayor probabilidad de conversión.
+- Un excesivo número de contactos reduce la probabilidad de éxito
+
+
+## **Conclusiones** ##
+
+El análisis muestra que la estrategia de marketing debe centrarse en:
+
+- Contactar a clientes con frecuencia moderada
+
+- Priorizar clientes con contacto reciente
+
+- Optimizar la duración de las llamadas
+
+- Segmentar por perfil sociodemográfico
+
+Estos insights pueden mejorar significativamente la tasa de conversión de campañas futuras.
